@@ -1,0 +1,256 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  font-family: "Muli", sans-serif;
+  color: rgb(51, 51, 51);
+}
+
+path,
+i,
+svg {
+  pointer-events: none;
+}
+
+.colors {
+  min-height: 80vh;
+  display: flex;
+  color: rgb(212, 212, 212);
+}
+
+.color {
+  height: 80vh;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  overflow: hidden;
+}
+
+.colors h2 {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0%;
+  background: rgb(255, 255, 255);
+  padding: 1rem;
+  width: 80%;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.5s ease-in-out;
+}
+
+.slider.active {
+  opacity: 1;
+  transform: translateY(0px);
+  pointer-events: all;
+}
+
+.slider button, .close-save, .close-library {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border: none;
+  background: rgb(73, 73, 73);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 20vh;
+}
+
+.panel button {
+  font-size: 1.2rem;
+  margin: 1rem;
+  padding: 1rem 2rem;
+  background: rgb(31, 33, 63);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+.panel p {
+  font-size: 1.2rem;
+}
+
+.library-panel,
+.generate-panel,
+.save-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.adjust,
+.lock {
+  font-size: 1.5rem;
+  border: none;
+  background: transparent;
+  /* padding: 1rem; */
+  margin: 2rem 0rem;
+  cursor: pointer;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  margin: 1rem 0rem;
+  width: 100%;
+  position: relative;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  width: 15px;
+  -webkit-appearance: none;
+  height: 15px;
+  border-radius: 50%;
+  cursor: ew-resize;
+  background: #fefefe84;
+  /* box-shadow: -80px 0 0 80px #43e5f7; */
+}
+
+.copy-container, .save-container, .library-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000a7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.active-div {
+  opacity: 1;
+  pointer-events: all;
+}
+.copy-popup, .library-popup, .save-popup{
+  position: relative;
+  background-color: #fff;
+  /* padding: 3rem; */
+  width: 30%;
+  height: 30vh;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.library-popup {
+  padding-top: 20px;
+  /* padding: 30px; */
+  /* overflow: scroll;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px; */
+  
+}
+.copy-popup h3, .save-popup h4, .library-popup h4 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.copy-popup h4, .library-popup h3 {
+  font-size: 1.2rem;
+}
+
+.save-popup input{
+  /* border: none; */
+  outline: none;
+  padding: 5px;
+  width: 15rem;
+  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+}
+
+.save-popup .submit-save {
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  background: #7e006c99;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: all 0.2s ease;
+}
+
+.save-popup .submit-save:hover {
+  background: #7e006b;
+}
+
+.colors-div {
+  flex: 1;
+  width: 20px;
+  height: 40px;
+}
+
+.colordiv {
+  display: flex;
+}
+
+.show-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 40px; */
+}
+
+.select-btn {
+  border: none;
+  background: #7e006b;
+  color: #fff;
+  padding: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.all-color-div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: scroll;
+  height: 80%;
+  width: 100%;
+  padding: 0 20px 20px 20px;
+}
